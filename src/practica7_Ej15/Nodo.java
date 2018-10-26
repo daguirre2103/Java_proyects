@@ -47,5 +47,16 @@ public class Nodo<T> {
 		this.ader = ader;
 	}
 	
+	public boolean Buscar (Nodo<T> a, T valor) {
+		
+		boolean rta;
+		
+		if (a.getRaiz().getValor() == valor) {
+			rta = true;
+			return rta;
+		}else {
+			return a.Buscar(a.getAizq(), valor)	|| a.Buscar(a.getAizq(), valor);
+		}
+	}
 	
 }
