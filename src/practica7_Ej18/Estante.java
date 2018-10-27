@@ -12,11 +12,11 @@ public class Estante {
 		
 	}
 	
-	public HashMap <Integer, Libro> ConstEstante (int indice, ArrayList<Libro> libros) {
+	public HashMap <Integer, HashMap <String, Libro>> ConstEstante (int indice, HashMap <String, Libro> libros) {
 		
-		HashMap <Integer, Libro> est= new HashMap <Integer, Libro>();
+		HashMap <Integer, HashMap <String, Libro>> est= new HashMap <Integer, HashMap <String, Libro>>();
 		
-		for(Libro libroAux : libros)
+		for(HashMap <String, Libro> libroAux : libros)
 			est.put(indice++, libroAux);
 		
 		return est;
@@ -34,13 +34,10 @@ public class Estante {
 		while (it.hasNext()) {
 			Map.Entry<Integer, Libro> e = (Map.Entry<Integer, Libro>)it.next();
 			System.out.println(" Nro de libro: "+ (e.getKey() + " N. del libro: " + e.getValue().getNombre() + " Autor: " + e.getValue().getAutor() + " Editorial: " + e.getValue().getEditorial()+ " Año de publicacion: " + e.getValue().getDatePublicacion()));
-			
-			
-			
 		}
-		
-		 
-		
 	}
 	
+	public boolean BuscarLibro (HashMap <Integer, Libro> libros, Integer nLibro) {
+		
+	}
 }

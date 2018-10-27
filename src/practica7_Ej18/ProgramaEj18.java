@@ -14,20 +14,28 @@ public class ProgramaEj18 {
 		Libro l4 = new Libro ("Familia4", "David", "Panalab", 2002);
 		Libro l5 = new Libro ("Familia5", "David", "Panalab", 2003);
 		
+		HashMap <String, Libro> as = new HashMap <String, Libro>();
 		Libro[] libros = {l1, l2, l3, l4, l5};
-		ArrayList<Libro> ls = new ArrayList<Libro>();
 		
 		for (Libro l: libros) {
-			ls.add(l);
+			as.put(l.getNombre(), l);
 		}
+		
+		
+		
+//		ArrayList<Libro> ls = new ArrayList<Libro>();
+//		
+//		for (Libro l: libros) {
+//			ls.add(l);
+//		}
 				
 		//Creo un estante y le agrego los libros.
 		
 		int indEst1 = 0;
-		HashMap <Integer, Libro> est1;
+		HashMap <Integer, HashMap <String, Libro>> est1;
 		
 		Estante est = new Estante();
-		est1 = est.ConstEstante(indEst1, ls);
+		est1 = est.ConstEstante(indEst1, as);
 		est.MostrarEstante(est1);
 		
 		//Creo los libros2
@@ -100,6 +108,11 @@ public class ProgramaEj18 {
 		int indiceE1 = 3;
 		estss = estanteria.AgregarEstante(indiceE1, est3, estss);
 		estanteria.MostrarEstante(estss);
+		
+		Integer nLibro = 1;
+		est.BuscarLibro(est1, nLibro);
+		
+		
 		
 	}
 		
