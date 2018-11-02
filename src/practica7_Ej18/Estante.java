@@ -16,11 +16,13 @@ public class Estante {
 		
 		HashMap <Integer, HashMap <String, Libro>> est= new HashMap <Integer, HashMap <String, Libro>>();
 		
-		for(HashMap <String, Libro> libroAux : libros)
-			est.put(indice++, libroAux);
+		Iterator it = libros.entrySet().iterator();
+		while (it.hasNext()) {
+			Map.Entry<Integer,HashMap <String, Libro>> e = (Map.Entry<Integer,HashMap <String, Libro>>)it.next();
+			 est.put(indice++, (HashMap<String, Libro>) e);
 		
+		}
 		return est;
-	
 	}
 
 	public HashMap <Integer, Libro> AgregarLibro (int indice, Libro libro, HashMap <Integer, Libro> est) {
@@ -28,16 +30,17 @@ public class Estante {
 		return est;
 	}
 	
-	public void MostrarEstante (HashMap <Integer, Libro> est) {
+	public void MostrarEstante (HashMap <Integer, HashMap <String, Libro>> est) {
 		
 		Iterator it = est.entrySet().iterator();
 		while (it.hasNext()) {
-			Map.Entry<Integer, Libro> e = (Map.Entry<Integer, Libro>)it.next();
-			System.out.println(" Nro de libro: "+ (e.getKey() + " N. del libro: " + e.getValue().getNombre() + " Autor: " + e.getValue().getAutor() + " Editorial: " + e.getValue().getEditorial()+ " Año de publicacion: " + e.getValue().getDatePublicacion()));
+			Map.Entry<Integer, HashMap <String, Libro>> e = (Map.Entry<Integer, HashMap <String, Libro>>)it.next();
+				Iterator it2 = e.getValue().entrySet().iterator();
+					while (it2.hasNext()) {
+						Map.Entry<String, Libro> e2 = (Map.Entry<String, Libro>)it2.next();
+						System.out.println(" Nro de libro: "+ (e.getKey() + " N. del libro: " + e2.getKey() +  " N. del libro: " + e2.getValue().getNombre()+ " Autor: " + e2.getValue().getAutor() + " Editorial: " + e2.getValue().getEditorial()+ " Año de publicacion: " + e2.getValue().getDatePublicacion()));
+					}
 		}
-	}
 	
-	public boolean BuscarLibro (HashMap <Integer, Libro> libros, Integer nLibro) {
-		
 	}
 }
