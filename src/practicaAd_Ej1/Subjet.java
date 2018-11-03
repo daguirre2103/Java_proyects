@@ -2,9 +2,9 @@ package practicaAd_Ej1;
 
 public interface Subjet {
 	
-	public void Agregar();
-	public void remover();
-	public void notificar();
+	public void Agregar(VerificoEntero obs);
+	public void remover(VerificoEntero obs);
+	public void notificar(EnteroConLimites nro);
 	
 	
 	

@@ -1,24 +1,38 @@
 package practicaAd_Ej1;
 
-public class EnteroConLimites implements Subjet {
+public class EnteroConLimites {
 
+	private int minimo = 25;
+	private int maximo = 70;
 	
-	@Override
-	public void Agregar() {
-		// TODO Auto-generated method stub
-		
+	int valor;
+	
+		public EnteroConLimites(int valor) {
+		super();
+		this.valor = valor;
 	}
 
-	@Override
-	public void remover() {
-		// TODO Auto-generated method stub
-		
-	}
+		public int getMinimo() {
+			return minimo;
+		}
 
-	@Override
-	public void notificar() {
-		// TODO Auto-generated method stub
+		public void setMinimo(int minimo) {
+			this.minimo = minimo;
+		}
+
+		public int getMaximo() {
+			return maximo;
+		}
+
+		public void setMaximo(int maximo) {
+			this.maximo = maximo;
+		}
+
+		public int getValor() {
+			return valor;
+		}
+
 		
-	}
+	
 
 }
