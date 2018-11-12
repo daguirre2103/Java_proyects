@@ -1,6 +1,6 @@
 package tp2018;
 
-import practicoInmuebleJAVA.*;
+
 
 import java.io.IOException;
 import java.util.Scanner;

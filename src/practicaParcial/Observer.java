@@ -1,5 +1,7 @@
 package practicaParcial;
 
-public class Observer {
+public interface Observer {
 
+		public void Update();
+		
 }
