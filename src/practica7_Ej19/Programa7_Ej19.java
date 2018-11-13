@@ -20,13 +20,13 @@ public class Programa7_Ej19 {
 		ag.Agregar(d);
 		ag.Agregar(e);
 	
-		ag.Mostar();
+		ag.Mostrar();
 		
 		ag.Buscar("Natalia Suelves");
 		
 		ag.Eliminar("Karen Zorn");
 		
-		ag.Mostar();
+		ag.Mostrar();
 	}
 		
 	

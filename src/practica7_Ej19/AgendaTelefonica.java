@@ -1,7 +1,7 @@
 package practica7_Ej19;
 
 import java.util.ArrayList;
-
+import java.util.Iterator;
 
 
 public class AgendaTelefonica {
@@ -18,11 +18,9 @@ public class AgendaTelefonica {
 	
 	public void Eliminar(String s) {
 				
-		for (Persona p: agenda) {
-			if (p.getNombre() == s) {
-				agenda.remove(p);
-			}else {
-				System.out.println("El nombre ingresado no existe en la agenda");
+		for (int i=0; i < agenda.size(); i++) {
+			if (agenda.get(i).getNombre().equals(s)) {
+				agenda.remove(i);
 			}
 		}
 	}
@@ -30,15 +28,15 @@ public class AgendaTelefonica {
 	public void Buscar(String s) {
 		
 		for (Persona p: agenda) {
-			if (p.getNombre() == s) {
-				System.out.println("Direccion: " + p.getDireccion() + "; Telefono:" + p.getTelefono());
-			}else {
-				System.out.println("El nombre ingresado no existe en la agenda");
+			if (p.getNombre().equals(s)) {
+				System.out.println("Direccion: " + p.getDireccion() + " ; " + "Telefono: " + p.getTelefono());
 			}
 		}
 	}
+		
 	
-	public void Mostar () {
+	
+	public void Mostrar () {
 		for (Persona p: agenda) {
 				System.out.println("Nombre:" + p.getNombre() + "Direccion: " + p.getDireccion() + "; Telefono:" + p.getTelefono());
 		}
