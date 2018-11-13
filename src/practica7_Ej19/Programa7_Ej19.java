@@ -7,6 +7,7 @@ public class Programa7_Ej19 {
 		// TODO Auto-generated method stub
 		
 		AgendaTelefonica ag = new AgendaTelefonica();
+		Persona ab;
 		
 		Persona a = new Persona ("David Aguirre", "Campicuelo 3247", 1557159308);
 		Persona b = new Persona ("Karen Zorn", "Campicuelo 3248", 1557159308);
@@ -22,7 +23,12 @@ public class Programa7_Ej19 {
 	
 		ag.Mostrar();
 		
-		ag.Buscar("Natalia Suelves");
+		ab = ag.Buscar("Natalia");
+		if (ab != null) {
+			System.out.println("Direccion: " + ab.getDireccion() + " ; " + "Telefono: " + ab.getTelefono());
+		}else {
+			System.out.println("Persona no encontrada en la agenda");
+		}
 		
 		ag.Eliminar("Karen Zorn");
 		

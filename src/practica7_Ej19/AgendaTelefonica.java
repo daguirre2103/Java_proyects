@@ -25,13 +25,14 @@ public class AgendaTelefonica {
 		}
 	}
 	
-	public void Buscar(String s) {
-		
+	public Persona Buscar(String s) {
+		Persona a = null;
 		for (Persona p: agenda) {
 			if (p.getNombre().equals(s)) {
-				System.out.println("Direccion: " + p.getDireccion() + " ; " + "Telefono: " + p.getTelefono());
+				a = p;
 			}
 		}
+		return a;
 	}
 		
 	
