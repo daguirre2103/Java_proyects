@@ -1,17 +1,18 @@
 package practicaParcial;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Banco implements Subjet {
 	
 	private String Nombre;
-	ArrayList<Cliente> clientes;
-	Actualizador ac = new Actualizador();
-	
-	public Banco(String nombre, ArrayList<Cliente> clientes) {
+	HashMap <Integer, Cliente> Clientes;
+	ArrayList <Actualizador> actualizadores = new ArrayList <Actualizador>();
+		
+	public Banco(String nombre, HashMap <Integer, Cliente> clientes) {
 		super();
 		Nombre = nombre;
-		this.clientes = clientes;
+		this.Clientes = clientes;
+		
 	}
 
 	public String getNombre() {
@@ -22,38 +23,67 @@ public class Banco implements Subjet {
 		Nombre = nombre;
 	}
 
-	public ArrayList<Cliente> getClientes() {
-		return clientes;
+	public HashMap<Integer, Cliente> getClientes() {
+		return Clientes;
 	}
 
-	public void setClientes(ArrayList<Cliente> clientes) {
-		this.clientes = clientes;
+	public void setClientes(HashMap<Integer, Cliente> clientes) {
+		Clientes = clientes;
+	}
+
+	public void Depositar (Integer clave, double importe) {
+			
+		if (Clientes.containsKey(clave)) {
+		 Cliente cl = Clientes.get(clave);
+		 cl.getCta().setSaldo(cl.getCta().getSaldo() + importe);
+			notificar (cl, cl.getCta().getSaldo());
+		}else {
+			System.out.println("Clave incorrecta, intentelo de nuevo");
+		}
 	}
 	
-	public void Depositar (Cliente c) {
-		
-	}
-	
-	public void Extraer (Cliente c) {
-		
+	public void Extraer (Integer clave, double importe) {
+		if (Clientes.containsKey(clave)) {
+			Cliente cl = Clientes.get(clave);
+			if (cl.getCta().getSaldo() < importe) {
+				System.out.println("Saldo insuficiente, haga un deposito primero");
+			}else {
+				cl.getCta().setSaldo(cl.getCta().getSaldo() - importe);
+				notificar (cl, cl.getCta().getSaldo());
+			}
+		}else {
+				System.out.println("Clave incorrecta, intentelo de nuevo");
+		}
 	}
 
 	@Override
 	public void Agregar(Actualizador ac) {
-		Actualizador a = null;
-		a = ac;
+		
+		if (!this.actualizadores.contains(ac)) {
+			this.actualizadores.add(ac);
+		}else {
+			System.out.println("Este actualizador ya esta en la lista");
+		}
 		
 	}
 
 	@Override
 	public void Remover(Actualizador ac) {
-		ac = null;
+		
+		if (this.actualizadores.contains(ac)) {
+			int i = this.actualizadores.indexOf(ac);
+			this.actualizadores.remove(i);
+		}else {
+			System.out.println("Este actualizador no exite en la lista");
+		}
 		
 	}
 
 	@Override
 	public void notificar(Cliente c, double importe) {
-		// TODO Auto-generated method stub
+		for (Actualizador ac: this.actualizadores) {
+			ac.update(c, importe);
+		}
 		
 	}
 	

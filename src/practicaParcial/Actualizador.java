@@ -1,11 +1,6 @@
 package practicaParcial;
 
-public class Actualizador implements Observer {
+public interface Actualizador {
 
-	@Override
-	public void Update() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void update(Cliente c, double importe);
 }
